@@ -48,10 +48,10 @@ def main():
     print('Un-comment the calls in MAIN one by one')
     print(' to run the testing code as you complete the TODOs.')
 
-    # run_test_problem1a()
-    # run_test_problem1b()
-    # run_test_problem1c()
-    # run_test_problem1d()
+    run_test_problem1a()
+    run_test_problem1b()
+    run_test_problem1c()
+    run_test_problem1d()
 
 
 def run_test_problem1a():
@@ -218,9 +218,13 @@ def problem1a(strings):
       :rtype: list of int
     """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # done: 2. Implement and test this function.
     #          Tests have been written for you (above).
     # -------------------------------------------------------------------------
+    length = []
+    for k in range(len(strings)):
+        length = length + [len(strings[k])]
+    return length
 
 
 def run_test_problem1b():
@@ -391,9 +395,18 @@ def problem1b(strings):
       :rtype: int
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # done: 3. Implement and test this function.
     #          Tests have been written for you (above).
     # -------------------------------------------------------------------------
+    s = problem1a(strings)
+    count = 0
+    for k in range(len(s)):
+        if s[k] % 2 != 0:
+            if s[k] != 1:
+                count = count + 1
+        elif s[k] == 2:
+            count = count + 1
+    return count
 
 
 def run_test_problem1c():
@@ -587,10 +600,18 @@ def problem1c(strings):
       :rtype: bool
     """
     # -------------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # done: 4. Implement and test this function.
     #          Tests have been written for you (above).
     # See  IMPORTANT  note before the DEF line of this function.
     # -------------------------------------------------------------------------
+    x = problem1b(strings)
+    if x % 2 != 0:
+        if x == 1:
+            return False
+        return True
+    if x == 2:
+        return True
+    return False
 
 
 def run_test_problem1d():
@@ -774,9 +795,17 @@ def problem1d(strings):
       :rtype: str | -1
     """
     # -------------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # done: 5. Implement and test this function.
     #          Tests have been written for you (above).
     # -------------------------------------------------------------------------
+    s = problem1a(strings)
+    for k in range(len(s)):
+        if s[k] % 2 != 0:
+            if s[k] != 1:
+                return strings[k]
+        elif s[k] == 2:
+                return strings[k]
+    return -1
 
 
 ###############################################################################
